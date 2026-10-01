@@ -6,7 +6,23 @@ public class QuickSort {
 		int[] array = {3,1,8,7,6,2,4,9,5};
 		
 		showArray(array);
-		
+		quickSort(array);
+		showArray(array);
+		quickSort(array);
+		showArray(array);
+		quickSort(array);
+		showArray(array);
+		quickSort(array);
+		showArray(array);
+		quickSort(array);
+		showArray(array);
+		quickSort(array);
+		showArray(array);
+		quickSort(array);
+		showArray(array);
+		quickSort(array);
+		showArray(array);
+
 	}
 	
 	public static void showArray(int[] theArray) {
@@ -30,6 +46,21 @@ public class QuickSort {
 	}
 	
 	public static void quickSort(int[] array, int left, int right) {
+		if(left < right) {
+			int lIndex = left - 1;
+			int pivot = array[right];
+			for( int rIndex = 0; rIndex < array.length; rIndex++) {
+				if(array[rIndex] <= pivot) {
+					lIndex++;
+					int temp = array[lIndex];
+					array[lIndex] = array[rIndex];
+					array[rIndex] = temp;
+				
+				}
+			}
+			quickSort(array, left, lIndex);
+			quickSort(array, lIndex + 2, right);
+		}
 		
 		
 	}
