@@ -8,20 +8,7 @@ public class QuickSort {
 		showArray(array);
 		quickSort(array);
 		showArray(array);
-		quickSort(array);
-		showArray(array);
-		quickSort(array);
-		showArray(array);
-		quickSort(array);
-		showArray(array);
-		quickSort(array);
-		showArray(array);
-		quickSort(array);
-		showArray(array);
-		quickSort(array);
-		showArray(array);
-		quickSort(array);
-		showArray(array);
+		
 
 	}
 	
@@ -49,7 +36,7 @@ public class QuickSort {
 		if(left < right) {
 			int lIndex = left - 1;
 			int pivot = array[right];
-			for( int rIndex = 0; rIndex < array.length; rIndex++) {
+			for( int rIndex = left; rIndex < right; rIndex++) {
 				if(array[rIndex] <= pivot) {
 					lIndex++;
 					int temp = array[lIndex];
@@ -58,8 +45,14 @@ public class QuickSort {
 				
 				}
 			}
-			quickSort(array, left, lIndex);
-			quickSort(array, lIndex + 2, right);
+			lIndex++;
+			
+			int temp = array[lIndex];
+			array[lIndex] = array[right];
+			array[right] = temp;
+			quickSort(array, left, lIndex - 1);
+			quickSort(array, lIndex + 1, right);
+			
 		}
 		
 		
